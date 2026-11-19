@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دورة اللغة التركية | أكاديمية إشراق</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ishraqDark: '#4A2E4B',
+                        ishraqPurple: '#7B427E',
+                        ishraqLight: '#F7F3F7',
+                        ishraqGold: '#D4AF37',
+                        ishraqGoldLight: '#FDF8E2',
+                        ishraqAccent: '#9C629E'
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #F7F3F7;
+            color: #2D232E;
+        }
+        .gold-border {
+            border: 2px solid #D4AF37;
+        }
+        .gold-shadow {
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+        }
+        .purple-gradient {
+            background: linear-gradient(135deg, #4A2E4B 0%, #7B427E 100%);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #AA8C2C 100%);
+        }
+        /* Hide print elements */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #certificateModal, #certificateModal * {
+                visibility: visible;
+            }
+            #certificateModal {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                background: white;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="purple-gradient text-white shadow-md sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center">
+            <div class="flex items-center gap-3 mb-2 sm:mb-0">
+                <div class="w-10 h-10 rounded-full gold-gradient flex items-center justify-center text-ishraqDark font-bold text-xl shadow">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-wide">أكاديمية إشراق</h1>
+                    <p class="text-xs text-ishraqGoldLight">دورة اللغة التركية - الدرس الأول</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full text-sm font-semibold border border-ishraqGold/30">
+                <i class="fa-solid fa-user-graduate text-ishraqGold"></i>
+                <span>مرحباً بكِ أيتها الطيبة في رحاب التعلم</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-5xl w-full mx-auto p-4 sm:p-6 space-y-8">
+
+        <!-- Welcome Banner -->
+        <section class="bg-white rounded-2xl p-6 gold-border shadow-md text-center relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-40 h-40 bg-ishraqGold/10 rounded-full blur-2xl pointer-events-none"></div>
+            <h2 class="text-2xl sm:text-3xl font-black text-ishraqDark mb-3">أهلاً بكِ في الدرس الأول: الأبجدية التركية (Türk Alfabesi)</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
+                استعدي لخوض رحلة ممتعة في تعلم أساسيات اللغة التركية. يمكنكِ أولاً تصفح لوحة الحروف المستقلة لتثبيت معلوماتكِ، ثم الانتقال لاختبار القواعد والنطق بكل ثقة.
+            </p>
+            <div class="mt-6 flex flex-wrap justify-center gap-4">
+                <button onclick="scrollToSection('alphabetSection')" class="px-5 py-2.5 bg-ishraqPurple text-white rounded-xl font-semibold shadow hover:bg-ishraqDark transition flex items-center gap-2">
+                    <i class="fa-solid fa-table-cells"></i> لوحة الحروف الـ 29
+                </button>
+                <button onclick="scrollToSection('quizSection')" class="px-5 py-2.5 gold-gradient text-ishraqDark rounded-xl font-bold shadow hover:opacity-90 transition flex items-center gap-2">
+                    <i class="fa-solid fa-pen-to-square"></i> ابدئي الاختبار التفاعلي
+                </button>
+            </div>
+        </section>
+
+        <!-- 1. لوحة الأبجدية التركية المستقلة -->
+        <section id="alphabetSection" class="bg-white rounded-2xl p-6 sm:p-8 gold-border shadow-md">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-100 pb-4 mb-6">
+                <div>
+                    <h3 class="text-xl font-bold text-ishraqDark flex items-center gap-2">
+                        <i class="fa-solid fa-book-open text-ishraqGold"></i> لوحة الأبجدية التركية المستقلة (Türk Alfabesi)
+                    </h3>
+                    <p class="text-xs text-gray-500 mt-1">تضم 29 حرفاً لاتينياً أساسياً (بدون أزرار صوتية داخل هذه اللوحة)</p>
+                </div>
+                <div class="mt-3 sm:mt-0 flex items-center gap-3 text-xs font-semibold">
+                    <span class="flex items-center gap-1 bg-amber-50 text-amber-800 px-3 py-1 rounded-lg border border-amber-200">
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block"></span> حروف متحركة (8)
+                    </span>
+                    <span class="flex items-center gap-1 bg-purple-50 text-ishraqDark px-3 py-1 rounded-lg border border-purple-200">
+                        <span class="w-2.5 h-2.5 rounded-full bg-ishraqPurple inline-block"></span> حروف ساكنة (21)
+                    </span>
+                </div>
+            </div>
+
+            <!-- Alphabet Grid -->
+            <div id="alphabetGrid" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-3">
+                <!-- Will be populated by JavaScript -->
+            </div>
+
+            <div class="mt-6 bg-ishraqLight p-4 rounded-xl border border-ishraqPurple/20 text-xs sm:text-sm text-gray-700 leading-relaxed flex items-start gap-3">
+                <i class="fa-solid fa-circle-info text-ishraqGold text-lg mt-0.5"></i>
+                <div>
+                    <span class="font-bold text-ishraqDark">توجيه أكاديمي:</span> تذكري دائماً أن الأبجدية التركية تتكون من 29 حرفاً، وتكتب وتُقرأ من اليسار إلى اليمين. الحروف المتحركة هي عمود الفقري للغة، بينما الحروف الساكنة تبني هيكل الكلمة بالتعاون معها.
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section Container -->
+        <section id="quizSection" class="bg-white rounded-2xl p-6 sm:p-8 gold-border shadow-md space-y-8">
+            <div class="text-center border-b border-gray-100 pb-4">
+                <h3 class="text-2xl font-black text-ishraqDark">اختبار إشراق التفاعلي لدرس الأبجدية</h3>
+                <p class="text-sm text-gray-500 mt-1">أجبي عن الأسئلة التالية بعناية لاجتياز الدرس والحصول على الشهادة (20 سؤالاً في قسمين)</p>
+            </div>
+
+            <!-- Tabs Navigation -->
+            <div class="flex justify-center border-b border-gray-200 gap-4">
+                <button id="tabBtn1" onclick="switchTab(1)" class="px-6 py-3 font-bold text-ishraqPurple border-b-2 border-ishraqPurple transition flex items-center gap-2">
+                    <i class="fa-solid fa-list-check"></i> القسم الأول: أسئلة القواعد (10)
+                </button>
+                <button id="tabBtn2" onclick="switchTab(2)" class="px-6 py-3 font-bold text-gray-400 border-b-2 border-transparent hover:text-ishraqPurple transition flex items-center gap-2">
+                    <i class="fa-solid fa-volume-high"></i> القسم الثاني: النطق والتسجيل (10)
+                </button>
+            </div>
+
+            <!-- Part 1: Rules Quiz -->
+            <div id="part1Container" class="space-y-6">
+                <div class="flex justify-between items-center bg-ishraqLight p-3 rounded-xl">
+                    <span class="font-bold text-ishraqDark text-sm">أسئلة القواعد والأبجدية</span>
+                    <span id="p1Progress" class="text-xs bg-ishraqPurple text-white px-2.5 py-1 rounded-full font-semibold">السؤال 1 من 10</span>
+                </div>
+                <div id="p1QuestionBox" class="space-y-4">
+                    <!-- Dynamic Question Rendering -->
+                </div>
+                <div class="flex justify-between pt-4 border-t border-gray-100">
+                    <button onclick="prevQuestion(1)" id="p1PrevBtn" class="px-4 py-2 rounded-xl border border-gray-300 text-gray-600 text-sm font-semibold hover:bg-gray-50 disabled:opacity-30" disabled>السابق</button>
+                    <button onclick="nextQuestion(1)" id="p1NextBtn" class="px-5 py-2 rounded-xl bg-ishraqPurple text-white text-sm font-semibold hover:bg-ishraqDark shadow">التالي</button>
+                </div>
+            </div>
+
+            <!-- Part 2: Pronunciation & Audio Quiz -->
+            <div id="part2Container" class="space-y-6 hidden">
+                <div class="flex justify-between items-center bg-ishraqLight p-3 rounded-xl">
+                    <span class="font-bold text-ishraqDark text-sm">أسئلة النطق والاستماع الصوتي</span>
+                    <span id="p2Progress" class="text-xs bg-ishraqPurple text-white px-2.5 py-1 rounded-full font-semibold">السؤال 1 من 10</span>
+                </div>
+                <div id="p2QuestionBox" class="space-y-4">
+                    <!-- Dynamic Question Rendering -->
+                </div>
+                <div class="flex justify-between pt-4 border-t border-gray-100">
+                    <button onclick="prevQuestion(2)" id="p2PrevBtn" class="px-4 py-2 rounded-xl border border-gray-300 text-gray-600 text-sm font-semibold hover:bg-gray-50 disabled:opacity-30" disabled>السابق</button>
+                    <button onclick="nextQuestion(2)" id="p2NextBtn" class="px-5 py-2 rounded-xl bg-ishraqPurple text-white text-sm font-semibold hover:bg-ishraqDark shadow">التالي</button>
+                </div>
+            </div>
+
+            <!-- Submit Quiz Container -->
+            <div id="submitContainer" class="hidden text-center pt-6 border-t border-gray-100">
+                <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl mb-4 text-sm text-amber-900">
+                    <i class="fa-solid fa-triangle-exclamation text-ishraqGold ml-1"></i> لقد أتممتِ جميع الأسئلة العشرين. تأكدي من إجاباتكِ قبل اعتماد النتيجة النهائية.
+                </div>
+                <button onclick="submitQuiz()" class="px-8 py-3 gold-gradient text-ishraqDark font-bold rounded-xl shadow-lg hover:opacity-90 transition text-base">
+                    <i class="fa-solid fa-square-poll-vertical ml-2"></i> إنهاء واحتساب النتيجة النهائية
+                </button>
+            </div>
+        </section>
+
+        <!-- 5. Result & Correction Section -->
+        <section id="resultSection" class="hidden bg-white rounded-2xl p-6 sm:p-8 gold-border shadow-md space-y-6 text-center">
+            <div class="w-20 h-20 mx-auto rounded-full gold-gradient flex items-center justify-center text-ishraqDark text-3xl shadow-lg">
+                <i class="fa-solid fa-award"></i>
+            </div>
+            <h3 class="text-2xl font-black text-ishraqDark">نتيجة الاختبار النهائي</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto my-4">
+                <div class="bg-ishraqLight p-4 rounded-xl border border-ishraqPurple/20">
+                    <p class="text-xs text-gray-500">العلامة النهائية</p>
+                    <p id="finalScoreText" class="text-3xl font-black text-ishraqPurple mt-1">0 / 20</p>
+                </div>
+                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
+                    <p class="text-xs text-emerald-700">الإجابات الصحيحة</p>
+                    <p id="correctCountText" class="text-3xl font-black text-emerald-600 mt-1">0</p>
+                </div>
+                <div class="bg-rose-50 p-4 rounded-xl border border-rose-200">
+                    <p class="text-xs text-rose-700">الإجابات الخاطئة</p>
+                    <p id="wrongCountText" class="text-3xl font-black text-rose-600 mt-1">0</p>
+                </div>
+            </div>
+
+            <div id="encourageMessageBox" class="p-4 rounded-xl font-semibold text-sm max-w-xl mx-auto">
+                <!-- Dynamic motivational message -->
+            </div>
+
+            <!-- Certificate Trigger Container -->
+            <div id="certificateTriggerBox" class="hidden pt-4 border-t border-gray-100 space-y-4 max-w-md mx-auto">
+                <h4 class="font-bold text-ishraqDark text-base">مبروك لكِ النجاح والتفوق! يمكنكِ إصدار شهادة الإتمام الآن</h4>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 text-right mb-1">اسم الطالبة الثلاثي (ليظهر على الشهادة الرسمية):</label>
+                    <input type="text" id="studentNameInput" placeholder="أدخلي اسمكِ الكريم هنا..." class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-ishraqPurple text-right text-sm">
+                </div>
+                <button onclick="openCertificateModal()" class="w-full py-3 bg-ishraqPurple text-white font-bold rounded-xl shadow hover:bg-ishraqDark transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-certificate text-ishraqGold"></i> إصدار شهادة إتمام الدرس الأول
+                </button>
+            </div>
+
+            <div class="pt-4 border-t border-gray-100 flex flex-wrap justify-center gap-4">
+                <button onclick="resetQuiz()" class="px-6 py-2.5 rounded-xl border border-ishraqPurple text-ishraqPurple font-bold text-sm hover:bg-ishraqLight transition flex items-center gap-2">
+                    <i class="fa-solid fa-rotate-right"></i> إعادة الاختبار
+                </button>
+                <button onclick="toggleReviewDetails()" class="px-6 py-2.5 rounded-xl bg-gray-100 text-gray-700 font-bold text-sm hover:bg-gray-200 transition flex items-center gap-2">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i> مراجعة الإجابات الصحيحة والتوضيحات
+                </button>
+            </div>
+
+            <!-- Detailed Review Container -->
+            <div id="reviewDetailsContainer" class="hidden text-right space-y-4 pt-6 border-t border-gray-200">
+                <h4 class="font-bold text-ishraqDark text-lg mb-2">توضيح الإجابات لجميع الأسئلة:</h4>
+                <div id="reviewList" class="space-y-4">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 6. Certificate Modal -->
+    <div id="certificateModal" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 hidden no-print-backdrop">
+        <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-10 gold-border shadow-2xl relative space-y-6">
+            <button onclick="closeCertificateModal()" class="absolute top-4 left-4 w-10 h-10 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center hover:bg-gray-200 transition no-print">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Certificate Design -->
+            <div id="certificatePrintArea" class="border-8 border-ishraqGold/30 p-6 sm:p-8 rounded-2xl bg-white text-center relative overflow-hidden space-y-6">
+                <!-- Background decorative badge -->
+                <div class="absolute -left-16 -bottom-16 w-48 h-48 bg-ishraqGold/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -right-16 -top-16 w-48 h-48 bg-ishraqPurple/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="flex justify-between items-center border-b border-gray-200 pb-4">
+                    <div class="text-right">
+                        <h2 class="text-lg font-black text-ishraqDark">أكاديمية إشراق</h2>
+                        <p class="text-xs text-gray-500">Ishraq Academy for Education</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-full gold-gradient flex items-center justify-center text-ishraqDark text-xl shadow">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <span class="text-xs uppercase tracking-widest bg-ishraqLight text-ishraqPurple px-3 py-1 rounded-full font-bold">شهادة تقدير وإتمام</span>
+                    <h3 class="text-2xl sm:text-3xl font-black text-ishraqDark pt-2">شهادة إتمام الدرس الأول</h3>
+                    <p class="text-xs text-gray-500">تشهد أكاديمية إشراق بأن الطالبة المتميزة:</p>
+                </div>
+
+                <div class="py-2">
+                    <h4 id="certStudentName" class="text-2xl sm:text-3xl font-black text-ishraqPurple border-b-2 border-dashed border-ishraqGold inline-block px-6 pb-1">اسم الطالبة</h4>
+                </div>
+
+                <p class="text-sm sm:text-base text-gray-700 leading-relaxed max-w-lg mx-auto">
+                    قد أتمت بنجاح وتفوق درس <span class="font-bold text-ishraqDark">الأبجدية التركية وتدريبات النطق الصوتي</span> ضمن متطلبات <span class="font-bold text-ishraqDark">دورة اللغة التركية</span> بكل أمانة واجتهاد.
+                </p>
+
+                <div class="flex justify-between items-center pt-8 border-t border-gray-200 text-xs sm:text-sm">
+                    <div>
+                        <p class="text-gray-500">تاريخ الإصدار:</p>
+                        <p id="certDate" class="font-bold text-ishraqDark mt-0.5">2026/06/07</p>
+                    </div>
+                    <div class="w-20 h-20 rounded-full bg-ishraqLight border-2 border-ishraqGold flex items-center justify-center text-ishraqGold font-bold text-xs text-center shadow-inner">
+                        ختم الأكاديمية
+                    </div>
+                    <div>
+                        <p class="text-gray-500">إدارة الأكاديمية:</p>
+                        <p class="font-bold text-ishraqDark mt-0.5">أكاديمية إشراق التعليمية</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Action Buttons -->
+            <div class="flex justify-center gap-4 pt-2 no-print">
+                <button onclick="printCertificate()" class="px-6 py-2.5 bg-ishraqPurple text-white font-bold rounded-xl shadow hover:bg-ishraqDark transition flex items-center gap-2">
+                    <i class="fa-solid fa-print"></i> طباعة / حفظ PDF
+                </button>
+                <button onclick="closeCertificateModal()" class="px-6 py-2.5 bg-gray-100 text-gray-700 font-bold rounded-xl shadow hover:bg-gray-200 transition">
+                    إغلاق
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Notification Toast -->
+    <div id="toastNotification" class="fixed bottom-6 left-6 z-50 bg-ishraqDark text-white px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
+        <i id="toastIcon" class="fa-solid fa-circle-check text-ishraqGold text-lg"></i>
+        <span id="toastMessage" class="text-sm font-semibold">رسالة التنبيه</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        /* --- Data Definitions --- */
+
+        // 29 Turkish Letters Data
+        const alphabetData = [
+            { upper: 'A', lower: 'a', type: 'vowel', desc: 'متحرك واسع' },
+            { upper: 'B', lower: 'b', type: 'consonant', desc: 'ساكن' },
+            { upper: 'C', lower: 'c', type: 'consonant', desc: 'ينطق ج' },
+            { upper: 'Ç', lower: 'ç', type: 'consonant', desc: 'ينطق تش' },
+            { upper: 'D', lower: 'd', type: 'consonant', desc: 'ساكن' },
+            { upper: 'E', lower: 'e', type: 'vowel', desc: 'متحرك أمامي' },
+            { upper: 'F', lower: 'f', type: 'consonant', desc: 'ساكن' },
+            { upper: 'G', lower: 'g', type: 'consonant', desc: 'ساكن قوي' },
+            { upper: 'Ğ', lower: 'ğ', type: 'consonant', desc: 'يوموشاك جي (لين)' },
+            { upper: 'H', lower: 'h', type: 'consonant', desc: 'ساكن هـ' },
+            { upper: 'I', lower: 'ı', type: 'vowel', desc: 'بدون نقطة' },
+            { upper: 'İ', lower: 'i', type: 'vowel', desc: 'بنقطة' },
+            { upper: 'J', lower: 'j', type: 'consonant', desc: 'ينطق ژ' },
+            { upper: 'K', lower: 'k', type: 'consonant', desc: 'ساكن ك' },
+            { upper: 'L', lower: 'l', type: 'consonant', desc: 'ساكن ل' },
+            { upper: 'M', lower: 'm', type: 'consonant', desc: 'ساكن م' },
+            { upper: 'N', lower: 'n', type: 'consonant', desc: 'ساكن ن' },
+            { upper: 'O', lower: 'o', type: 'vowel', desc: 'متحرك مدور' },
+            { upper: 'Ö', lower: 'ö', type: 'vowel', desc: 'متحرك أمامي مدور' },
+            { upper: 'P', lower: 'p', type: 'consonant', desc: 'ساكن پ' },
+            { upper: 'R', lower: 'r', type: 'consonant', desc: 'ساكن ر' },
+            { upper: 'S', lower: 's', type: 'consonant', desc: 'ساكن س' },
+            { upper: 'Ş', lower: 'ş', type: 'consonant', desc: 'ينطق ش' },
+            { upper: 'T', lower: 't', type: 'consonant', desc: 'ساكن ت' },
+            { upper: 'U', lower: 'u', type: 'vowel', desc: 'متحرك خلفي مدور' },
+            { upper: 'Ü', lower: 'ü', type: 'vowel', desc: 'متحرك أمامي مدور رفيع' },
+            { upper: 'V', lower: 'v', type: 'consonant', desc: 'ساكن فـ' },
+            { upper: 'Y', lower: 'y', type: 'consonant', desc: 'ساكن ي' },
+            { upper: 'Z', lower: 'z', type: 'consonant', desc: 'ساكن ز' }
+        ];
+
+        // Part 1: Rules Questions (10 questions, randomized options)
+        const part1Questions = [
+            {
+                q: "ما هو العدد الإجمالي للحروف في الأبجدية التركية الحديثة؟",
+                options: ["28 حرفاً", "29 حرفاً", "30 حرفاً", "26 حرفاً"],
+                correct: 1,
+                explanation: "تتكون الأبجدية التركية من 29 حرفاً لاتينياً أساسياً."
+            },
+            {
+                q: "ما هو اتجاه الكتابة والقراءة المعتمد في اللغة التركية؟",
+                options: ["من اليمين إلى اليسار", "من الأعلى إلى الأسفل", "من اليسار إلى اليمين", "بشكل عمودي"],
+                correct: 2,
+                explanation: "تُكتب وتُقرأ اللغة التركية دائماً من اليسار إلى اليمين."
+            },
+            {
+                q: "ما هو عدد الحروف المتحركة (Sesli Harfler) في الأبجدية التركية؟",
+                options: ["6 حروف", "7 حروف", "8 حروف", "9 حروف"],
+                correct: 2,
+                explanation: "يبلغ عدد الحروف المتحركة 8 حروف (A, E, I, İ, O, Ö, U, Ü)."
+            },
+            {
+                q: "ما هي الحروف الثلاثة غير الموجودة نهائياً في الأبجدية التركية؟",
+                options: ["Q, W, X", "J, V, Y", "Ç, Ş, Ğ", "K, L, M"],
+                correct: 0,
+                explanation: "الحروف Q و W و X غير موجودة في الأبجدية التركية الرسمية."
+            },
+            {
+                q: "ما هو الفرق بين الحرفين I ı و İ i في التركية؟",
+                options: ["لا يوجد فرق بينهما", "الأول بنقطة والثاني بدون نقطة", "الأول بدون نقطة والثاني بنقطة وينطقان كحرفين مستقلين", "الأول ساكن والثاني رقم"],
+                correct: 2,
+                explanation: "حرف I ı صوت خلفي بدون نقطة، بينما İ i حرف أمامي بنقطة ونطقهما مختلف تماماً."
+            },
+            {
+                q: "ما هي وظيفة الحرف اللين (Ğ ğ) في الكلمات التركية؟",
+                options: ["ينطق دائماً مثل G القوي", "لا ينطق عادةً بل يطيل صوت الحرف المتحرك الذي يسبقه", "يغير معنى الكلمة إلى الضد", "يأتي دائماً في بداية الكلمة"],
+                correct: 1,
+                explanation: "حرف Yumuşak Ge (Ğ) لا يُنطق بمفردة بل يطيل صوت الحرف المتحرك الذي قبله."
+            },
+            {
+                q: "كم عدد الحروف الساكنة (Sessiz Harfler) في الأبجدية التركية؟",
+                options: ["21 حرفاً", "19 حرفاً", "20 حرفاً", "22 حرفاً"],
+                correct: 0,
+                explanation: "يبلغ عدد الحروف الساكنة 21 حرفاً تشكل هيكل الكلمة مع المتحركة."
+            },
+            {
+                q: "كيف يُكتَب كل حرف في الأبجدية التركية؟",
+                options: ["بشكل كبير فقط Büyük", "بشكل صغير فقط Küçük", "بشكل كبير (Büyük) وشكل صغير (Küçük)", "بحسب موقعه في الجملة بدون قواعد"],
+                correct: 2,
+                explanation: "لكل حرف في التركية شكل كبير (Büyük) وشكل صغير (Küçük)."
+            },
+            {
+                q: "ما هو الحرف المتحرك الخلفي غير المستدير الذي ليس له مقابل في العربية (مثل كلمة Kız)؟",
+                options: ["İ i", "I ı", "U u", "A a"],
+                correct: 1,
+                explanation: "حرف I ı (بدون نقطة) هو صوت خلفي غير مستدير ولا يطابق الياء العربية تماماً."
+            },
+            {
+                q: "ما هي أهمية العلامات الخاصة في حروف مثل (Ç, Ş, Ğ, Ö, Ü)؟",
+                options: ["للزينة الجمالية فقط", "غياب العلامة أو تغييرها يغيّر نطق الكلمة ومعناها تماماً", "تُستعمل في كتابة الأرقام", "توضع فقط في نهاية الكلمات"],
+                correct: 1,
+                explanation: "العلامات الخاصة ضرورية للغاية؛ فغيابها أو تغييرها يقلب نطق الكلمة ومعناها."
+            }
+        ];
+
+        // Part 2: Pronunciation & Audio Questions (10 questions)
+        const part2Questions = [
+            {
+                q: "كيف يُنطق الحرف التركي C c في كلمة مثل (Cam - زجاج)؟",
+                options: ["مثل حرف الكاف (K)", "مثل حرف الجيم المصرية أو (G) الإنجليزية القوية", "مثل حرف التش (Ç)", "مثل حرف الشين"],
+                correct: 1,
+                explanation: "حرف C c يُنطق كجيم معطشة أو صوت الجيم في (Jack)، وليس كالجيم المصرية."
+            },
+            {
+                q: "كيف يُنطق الحرف التركي Ç ç في كلمة مثل (Çay - شاي)؟",
+                options: ["مثل حرف التش (Ch الإنجليزية)", "مثل حرف الثاء", "مثل حرف السين", "مثل حرف الزاي"],
+                correct: 0,
+                explanation: "حرف Ç ç يُنطق تماماً مثل صوت (تش / Ch)."
+            },
+            {
+                q: "كيف يُنطق الحرف التركي Ş ş في كلمة مثل (Şeker - سكر)؟",
+                options: ["مثل حرف السين (S)", "مثل حرف الشين (Sh الإنجليزية)", "مثل حرف الكاف", "مثل حرف الخاء"],
+                correct: 1,
+                explanation: "حرف Ş ş يُنطق مثل صوت الشين (Sh)."
+            },
+            {
+                q: "كيف يُنطق الحرف التركي J j في كلمة مثل (Jilet - شفرة حلاقة)؟",
+                options: ["مثل حرف الجيم", "مثل حرف الزاي", "مثل حرف الژ (zh الفرنسية)", "مثل حرف الياء"],
+                correct: 2,
+                explanation: "حرف J j يُنطق كحرف (ژ / zh) مثل الجيم الفرنسية."
+            },
+            {
+                q: "استمع واعرف نطق الحرف المتحرك İ i في كلمة (İyi - جيد):",
+                options: ["قريب جداً من الياء المكسورة (إي)", "مثل حرف الواو", "مثل الفتحة القصيرة", "مثل الضمة"],
+                correct: 0,
+                explanation: "حرف İ i (بنقطة) يُنطق بصوت إي واضح وقريب من الياء المكسورة."
+            },
+            {
+                q: "استمع واعرف نطق الحرف الأمامي المدور Ö ö:",
+                options: ["مثل حرف الألف", "صوت أمامي قريب من (إو) مع تدوير الشفتين بالكامل", "مثل حرف الباء", "مثل النون الساكنة"],
+                correct: 1,
+                explanation: "حرف Ö ö هو صوت أمامي مدور لا يوجد مطابق له في العربية تماماً."
+            },
+            {
+                q: "استمع واعرف نطق الحرف الأمامي المدور الرفيع Ü ü:",
+                options: ["مثل حرف الياء الصافية", "صوت أمامي قريب من (إي) مع تدوير الشفتين بالكامل", "مثل حرف الميم", "مثل حرف الراء"],
+                correct: 1,
+                explanation: "حرف Ü ü يُنطق قريباً من الإي مع تدوير الشفتين بدقة."
+            },
+            {
+                q: "كيف يُنطق الحرف G g في اللغة التركية؟",
+                options: ["دائماً جي خفيفة", "دائماً جيم مقلوبة", "جيم قوية (G) في أغلب الأحوال", "لا ينطق أبداً"],
+                correct: 2,
+                explanation: "حرف G g هو حرف ساكن قوي يُنطق (G) مثل (Good)."
+            },
+            {
+                q: "في النطق الصوتي الصحيح، ما هو صوت الحرف I ı في كلمة (Kız - فتاة)؟",
+                options: ["صوت خلفي مفخم قليلاً بدون نقطة", "مثل الألف المدودة", "مثل الكسرة الطويلة جداً", "مثل الضمة"],
+                correct: 0,
+                explanation: "حرف I ı صوت خلفي خاص ليس له مقابل دقيق بالعربية."
+            },
+            {
+                q: "ما هي النصيحة الذهبية للاستماع والنطق السليم في أكاديمية إشراق؟",
+                options: ["الاعتماد على الحروف العربية وحدها فقط", "الاستماع للنطق التركي الصحيح (tr-TR) ومحاكاة حركة الشفاه بدقة", "تجاهل النطق تماماً واكتفاء بالقراءة البصرية", "حفظ الكلمات كتابة بدون صوت"],
+                correct: 1,
+                explanation: "النطق العربي هو تقريب فقط، والاعتماد الأساسي يجب أن يكون على الاستماع الصوتي السليم."
+            }
+        ];
+
+        // Quiz State Variables
+        let currentTab = 1;
+        let p1CurrentIndex = 0;
+        let p2CurrentIndex = 0;
+        let userAnswersP1 = new Array(part1Questions.length).fill(null);
+        let userAnswersP2 = new Array(part2Questions.length).fill(null);
+        let quizSubmitted = false;
+
+        // MediaRecorder variables for student audio recording
+        let mediaRecorder = null;
+        let audioChunks = [];
+        let recordedAudioBlob = null;
+        let recordedAudioUrl = null;
+
+        /* --- Initialization on Load --- */
+        window.onload = function() {
+            renderAlphabetGrid();
+            renderQuestion(1);
+            renderQuestion(2);
+            updateProgressIndicators();
+        };
+
+        // Scroll helper
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Render Alphabet Board
+        function renderAlphabetGrid() {
+            const grid = document.getElementById('alphabetGrid');
+            grid.innerHTML = '';
+            alphabetData.forEach((item, index) => {
+                const isVowel = item.type === 'vowel';
+                const card = document.createElement('div');
+                card.className = `p-3 rounded-xl border text-center transition hover:shadow-md ${isVowel ? 'bg-amber-50/50 border-amber-200' : 'bg-purple-50/30 border-purple-100'}`;
+                card.innerHTML = `
+                    <div class="flex justify-between items-center text-[10px] text-gray-400 mb-1">
+                        <span>#${index + 1}</span>
+                        <span class="${isVowel ? 'text-amber-600 font-bold' : 'text-ishraqPurple'}">${isVowel ? 'متحرك' : 'ساكن'}</span>
+                    </div>
+                    <div class="text-2xl font-black text-ishraqDark my-1">${item.upper} <span class="text-lg font-bold text-gray-500">${item.lower}</span></div>
+                    <div class="text-[11px] text-gray-600 font-medium truncate">${item.desc}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Switch Tabs
+        function switchTab(tabNum) {
+            currentTab = tabNum;
+            const btn1 = document.getElementById('tabBtn1');
+            const btn2 = document.getElementById('tabBtn2');
+            const c1 = document.getElementById('part1Container');
+            const c2 = document.getElementById('part2Container');
+
+            if (tabNum === 1) {
+                btn1.className = "px-6 py-3 font-bold text-ishraqPurple border-b-2 border-ishraqPurple transition flex items-center gap-2";
+                btn2.className = "px-6 py-3 font-bold text-gray-400 border-b-2 border-transparent hover:text-ishraqPurple transition flex items-center gap-2";
+                c1.classList.remove('hidden');
+                c2.classList.add('hidden');
+            } else {
+                btn2.className = "px-6 py-3 font-bold text-ishraqPurple border-b-2 border-ishraqPurple transition flex items-center gap-2";
+                btn1.className = "px-6 py-3 font-bold text-gray-400 border-b-2 border-transparent hover:text-ishraqPurple transition flex items-center gap-2";
+                c2.classList.remove('hidden');
+                c1.classList.add('hidden');
+            }
+        }
+
+        /* --- Quiz Rendering Logic --- */
+        function renderQuestion(part) {
+            if (quizSubmitted) return;
+            const isP1 = part === 1;
+            const currentIndex = isP1 ? p1CurrentIndex : p2CurrentIndex;
+            const questions = isP1 ? part1Questions : part2Questions;
+            const userAnswers = isP1 ? userAnswersP1 : userAnswersP2;
+            const boxId = isP1 ? 'p1QuestionBox' : 'p2QuestionBox';
+            const progressId = isP1 ? 'p1Progress' : 'p2Progress';
+            const prevBtnId = isP1 ? 'p1PrevBtn' : 'p2PrevBtn';
+            const nextBtnId = isP1 ? 'p1NextBtn' : 'p2NextBtn';
+
+            document.getElementById(progressId).innerText = `السؤال ${currentIndex + 1} من ${questions.length}`;
+            document.getElementById(prevBtnId).disabled = currentIndex === 0;
+            document.getElementById(nextBtnId).innerText = currentIndex === questions.length - 1 ? (isP1 ? "انتقال للقسم الثاني" : "إنهاء الاختبار") : "التالي";
+
+            const qObj = questions[currentIndex];
+            let html = `
+                <div class="bg-ishraqLight p-5 rounded-2xl border border-ishraqPurple/10 space-y-4">
+                    <h4 class="text-base sm:text-lg font-bold text-ishraqDark leading-relaxed">${currentIndex + 1}. ${qObj.q}</h4>
+            `;
+
+            // If Part 2, add audio pronunciation button & student recording tools
+            if (!isP1) {
+                html += `
+                    <div class="flex flex-wrap items-center gap-3 pt-2 pb-1">
+                        <button onclick="playTurkishAudio('${qObj.q.replace(/'/g, "")}')" class="px-4 py-2 bg-ishraqPurple text-white rounded-xl text-xs font-bold hover:bg-ishraqDark transition flex items-center gap-2 shadow">
+                            <i class="fa-solid fa-volume-high text-ishraqGold"></i> الاستماع للنطق التركي (tr-TR)
+                        </button>
+                        <div class="flex items-center gap-2">
+                            <button id="recBtn" onclick="toggleRecordAudio()" class="px-3 py-2 bg-rose-600 text-white rounded-xl text-xs font-bold hover:bg-rose-700 transition flex items-center gap-1.5 shadow">
+                                <i class="fa-solid fa-microphone"></i> <span id="recBtnText">سجلي صوتكِ</span>
+                            </button>
+                            <span id="recStatus" class="text-xs text-gray-500 font-medium">الميكروفون جاهز</span>
+                        </div>
+                    </div>
+                    <div id="recordedPlayerContainer" class="hidden pt-2">
+                        <!-- Student playback -->
+                    </div>
+                `;
+            }
+
+            html += `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">`;
+            qObj.options.forEach((opt, optIdx) => {
+                const isSelected = userAnswers[currentIndex] === optIdx;
+                html += `
+                    <button onclick="selectOption(${part}, ${currentIndex}, ${optIdx})" class="p-3.5 rounded-xl border text-right text-sm font-semibold transition flex items-center gap-3 ${isSelected ? 'bg-ishraqPurple text-white border-ishraqPurple shadow' : 'bg-white text-gray-700 border-gray-200 hover:border-ishraqPurple/50'}">
+                        <span class="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold ${isSelected ? 'bg-white/20 text-white' : 'bg-ishraqLight text-ishraqPurple'}">${String.fromCharCode(65 + optIdx)}</span>
+                        <span>${opt}</span>
+                    </button>
+                `;
+            });
+            html += `</div></div>`;
+
+            document.getElementById(boxId).innerHTML = html;
+
+            // Check if all answered to show submit
+            checkAllAnsweredStatus();
+        }
+
+        function selectOption(part, qIndex, optIndex) {
+            if (quizSubmitted) return;
+            if (part === 1) {
+                userAnswersP1[qIndex] = optIndex;
+                renderQuestion(1);
+            } else {
+                userAnswersP2[qIndex] = optIndex;
+                renderQuestion(2);
+            }
+        }
+
+        function nextQuestion(part) {
+            const isP1 = part === 1;
+            const currentIndex = isP1 ? p1CurrentIndex : p2CurrentIndex;
+            const questions = isP1 ? part1Questions : part2Questions;
+
+            if (currentIndex < questions.length - 1) {
+                if (isP1) p1CurrentIndex++;
+                else p2CurrentIndex++;
+                renderQuestion(part);
+            } else if (isP1) {
+                // Switch to Part 2 automatically
+                switchTab(2);
+            } else {
+                // On last question of part 2, scroll to submit
+                scrollToSection('submitContainer');
+            }
+        }
+
+        function prevQuestion(part) {
+            const isP1 = part === 1;
+            const currentIndex = isP1 ? p1CurrentIndex : p2CurrentIndex;
+
+            if (currentIndex > 0) {
+                if (isP1) p1CurrentIndex--;
+                else p2CurrentIndex--;
+                renderQuestion(part);
+            }
+        }
+
+        function checkAllAnsweredStatus() {
+            const p1Complete = userAnswersP1.every(ans => ans !== null);
+            const p2Complete = userAnswersP2.every(ans => ans !== null);
+            const submitContainer = document.getElementById('submitContainer');
+            if (p1Complete && p2Complete) {
+                submitContainer.classList.remove('hidden');
+            }
+        }
+
+        /* --- Turkish Speech Synthesis with tr-TR Validation --- */
+        function playTurkishAudio(textSnippet) {
+            if (!('speechSynthesis' in window)) {
+                showToast("متصفحك لا يدعم خاصية النطق الصوتي.", "error");
+                return;
+            }
+
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(textSnippet);
+            utterance.lang = 'tr-TR';
+            utterance.rate = 0.85; // Slightly slower for learning
+
+            // Check if Turkish voice is available
+            let voices = window.speechSynthesis.getVoices();
+            let turkishVoice = voices.find(v => v.lang === 'tr-TR' || v.lang.startsWith('tr'));
+            
+            if (turkishVoice) {
+                utterance.voice = turkishVoice;
+            } else {
+                // Fallback warning if Turkish voice not installed on device
+                showToast("تنبيه: صوت اللغة التركية (tr-TR) غير متوفر في جهازك، تم استخدام النطق الافتراضي.", "warning");
+            }
+
+            utterance.onerror = function() {
+                showToast("عذراً، تعذر تشغيل الصوت التركي بدقة على هذا الجهاز.", "error");
+            };
+
+            window.speechSynthesis.speak(utterance);
+            showToast("جاري تشغيل النطق التركي الصحيح...", "success");
+        }
+
+        // Load voices early if available
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = function() {
+                window.speechSynthesis.getVoices();
+            };
+        }
+
+        /* --- Student Audio Recording Functionality --- */
+        function toggleRecordAudio() {
+            const recBtnText = document.getElementById('recBtnText');
+            const recStatus = document.getElementById('recStatus');
+
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                showToast("المتصفح لا يدعم تسجيل الصوت عبر الميكروفون.", "error");
+                return;
+            }
+
+            if (!mediaRecorder || mediaRecorder.state === "inactive") {
+                audioChunks = [];
+                navigator.mediaDevices.getUserMedia({ audio: true })
+                    .then(stream => {
+                        mediaRecorder = new MediaRecorder(stream);
+                        mediaRecorder.start();
+                        recBtnText.innerText = "إيقاف التسجيل";
+                        recStatus.innerText = "جاري التسجيل الآن...";
+                        showToast("بدأ التسجيل الصوتي، انطقي الآن...", "success");
+
+                        mediaRecorder.ondataavailable = event => {
+                            audioChunks.push(event.data);
+                        };
+
+                        mediaRecorder.onstop = () => {
+                            recordedAudioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
+                            recordedAudioUrl = URL.createObjectURL(recordedAudioBlob);
+                            renderRecordedPlayer();
+                        };
+                    })
+                    .catch(err => {
+                        showToast("يرجى السماح بالوصول إلى الميكروفون لتسجيل صوتكِ.", "error");
+                    });
+            } else if (mediaRecorder && mediaRecorder.state === "recording") {
+                mediaRecorder.stop();
+                recBtnText.innerText = "سجلي صوتكِ";
+                recStatus.innerText = "تم حفظ التسجيل بنجاح!";
+                showToast("تم حفظ تسجيلكِ الصوتي بنجاح!", "success");
+            }
+        }
+
+        function renderRecordedPlayer() {
+            const container = document.getElementById('recordedPlayerContainer');
+            if (!container) return;
+            container.classList.remove('hidden');
+            container.innerHTML = `
+                <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-emerald-200 mt-2">
+                    <span class="text-xs font-bold text-emerald-700"><i class="fa-solid fa-circle-check"></i> تسجيلكِ الصوتي:</span>
+                    <audio controls src="${recordedAudioUrl}" class="h-8 w-full max-w-xs"></audio>
+                </div>
+            `;
+        }
+
+        /* --- Quiz Submission & Grading --- */
+        function submitQuiz() {
+            let correctP1 = 0;
+            let correctP2 = 0;
+
+            part1Questions.forEach((q, idx) => {
+                if (userAnswersP1[idx] === q.correct) correctP1++;
+            });
+
+            part2Questions.forEach((q, idx) => {
+                if (userAnswersP2[idx] === q.correct) correctP2++;
+            });
+
+            const totalCorrect = correctP1 + correctP2;
+            const totalWrong = 20 - totalCorrect;
+
+            document.getElementById('finalScoreText').innerText = `${totalCorrect} / 20`;
+            document.getElementById('correctCountText').innerText = totalCorrect;
+            document.getElementById('wrongCountText').innerText = totalWrong;
+
+            // Motivational message
+            const msgBox = document.getElementById('encourageMessageBox');
+            const certTrigger = document.getElementById('certificateTriggerBox');
+
+            if (totalCorrect >= 15) {
+                msgBox.className = "p-4 rounded-xl font-semibold text-sm max-w-xl mx-auto bg-emerald-50 text-emerald-800 border border-emerald-200";
+                msgBox.innerHTML = `<i class="fa-solid fa-star text-ishraqGold ml-1"></i> مبروك لكِ التألق والتفوق يا أيتها المبدعة! لقد اجتزتِ الدرس الأول بامتياز ودقة عالية.`;
+                certTrigger.classList.remove('hidden');
+            } else if (totalCorrect >= 10) {
+                msgBox.className = "p-4 rounded-xl font-semibold text-sm max-w-xl mx-auto bg-amber-50 text-amber-800 border border-amber-200";
+                msgBox.innerHTML = `<i class="fa-solid fa-thumbs-up text-ishraqGold ml-1"></i> نتيجة طيبة وجهد مبارك! يمكنكِ مراجعة الأخطاء وإعادة الاختبار لتحقيق العلامة الكاملة.`;
+                certTrigger.classList.remove('hidden');
+            } else {
+                msgBox.className = "p-4 rounded-xl font-semibold text-sm max-w-xl mx-auto bg-rose-50 text-rose-800 border border-rose-200";
+                msgBox.innerHTML = `<i class="fa-solid fa-book-open text-rose-600 ml-1"></i> حاولي مراجعة لوحة الحروف والدرس مرة أخرى بعناية، ثم أعيدي الاختبار لتتألقي أكثر.`;
+                certTrigger.classList.add('hidden');
+            }
+
+            quizSubmitted = true;
+            document.getElementById('quizSection').classList.add('hidden');
+            document.getElementById('resultSection').classList.remove('hidden');
+            scrollToSection('resultSection');
+
+            renderReviewList();
+        }
+
+        function renderReviewList() {
+            const list = document.getElementById('reviewList');
+            list.innerHTML = '';
+
+            const allQ = [
+                ...part1Questions.map((q, i) => ({ ...q, typeName: 'قواعد', userAns: userAnswersP1[i] })),
+                ...part2Questions.map((q, i) => ({ ...q, typeName: 'نطق', userAns: userAnswersP2[i] }))
+            ];
+
+            allQ.forEach((item, index) => {
+                const isCorrect = item.userAns === item.correct;
+                const userChoiceText = item.userAns !== null ? item.options[item.userAns] : 'لم تقومي بالإجابة';
+                const correctChoiceText = item.options[item.correct];
+
+                const div = document.createElement('div');
+                div.className = `p-4 rounded-xl border text-sm ${isCorrect ? 'bg-emerald-50/40 border-emerald-200' : 'bg-rose-50/40 border-rose-200'}`;
+                div.innerHTML = `
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-xs font-bold px-2 py-0.5 rounded ${isCorrect ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}">
+                            السؤال ${index + 1} (${item.typeName}) - ${isCorrect ? 'إجابة صحيحة' : 'إجابة خاطئة'}
+                        </span>
+                    </div>
+                    <p class="font-bold text-ishraqDark mb-2">${item.q}</p>
+                    <p class="text-xs text-gray-600 mb-1">إجابتكِ: <span class="font-semibold ${isCorrect ? 'text-emerald-700' : 'text-rose-700'}">${userChoiceText}</span></p>
+                    ${!isCorrect ? `<p class="text-xs text-emerald-700 mb-1">الإجابة الصحيحة: <span class="font-semibold">${correctChoiceText}</span></p>` : ''}
+                    <p class="text-xs text-gray-500 mt-2 bg-white/60 p-2 rounded border border-gray-100"><span class="font-bold text-ishraqDark">التوضيح الأكاديمي:</span> ${item.explanation}</p>
+                `;
+                list.appendChild(div);
+            });
+        }
+
+        function toggleReviewDetails() {
+            const container = document.getElementById('reviewDetailsContainer');
+            container.classList.toggle('hidden');
+        }
+
+        function resetQuiz() {
+            quizSubmitted = false;
+            p1CurrentIndex = 0;
+            p2CurrentIndex = 0;
+            userAnswersP1 = new Array(part1Questions.length).fill(null);
+            userAnswersP2 = new Array(part2Questions.length).fill(null);
+
+            document.getElementById('resultSection').classList.add('hidden');
+            document.getElementById('quizSection').classList.remove('hidden');
+            document.getElementById('submitContainer').classList.add('hidden');
+            document.getElementById('certificateTriggerBox').classList.add('hidden');
+            document.getElementById('reviewDetailsContainer').classList.add('hidden');
+
+            renderQuestion(1);
+            renderQuestion(2);
+            switchTab(1);
+            scrollToSection('quizSection');
+            showToast("تمت إعادة ضبط الاختبار بنجاح.", "success");
+        }
+
+        /* --- Certificate Modal Logic --- */
+        function openCertificateModal() {
+            const nameInput = document.getElementById('studentNameInput').value.trim();
+            if (!nameInput) {
+                showToast("يرجى كتابة اسمكِ الكامل أولاً لإصدار الشهادة.", "error");
+                return;
+            }
+
+            document.getElementById('certStudentName').innerText = nameInput;
+            
+            // Format today's date
+            const now = new Date();
+            const dateStr = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')}`;
+            document.getElementById('certDate').innerText = dateStr;
+
+            document.getElementById('certificateModal').classList.remove('hidden');
+        }
+
+        function closeCertificateModal() {
+            document.getElementById('certificateModal').classList.add('hidden');
+        }
+
+        function printCertificate() {
+            window.print();
+        }
+
+        /* --- Toast Notification Helper --- */
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toastNotification');
+            const toastMsg = document.getElementById('toastMessage');
+            const toastIcon = document.getElementById('toastIcon');
+
+            toastMsg.innerText = message;
+            if (type === 'success') {
+                toast.className = "fixed bottom-6 left-6 z-50 bg-ishraqDark text-white px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 transition-all duration-300 transform translate-y-0 opacity-100";
+                toastIcon.className = "fa-solid fa-circle-check text-ishraqGold text-lg";
+            } else if (type === 'warning') {
+                toast.className = "fixed bottom-6 left-6 z-50 bg-amber-700 text-white px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 transition-all duration-300 transform translate-y-0 opacity-100";
+                toastIcon.className = "fa-solid fa-triangle-exclamation text-ishraqGold text-lg";
+            } else {
+                toast.className = "fixed bottom-6 left-6 z-50 bg-rose-700 text-white px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 transition-all duration-300 transform translate-y-0 opacity-100";
+                toastIcon.className = "fa-solid fa-circle-xmark text-ishraqGold text-lg";
+            }
+
+            setTimeout(() => {
+                toast.className = "fixed bottom-6 left-6 z-50 bg-ishraqDark text-white px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none";
+            }, 4000);
+        }
+    </script>
+</body>
+              </html>
